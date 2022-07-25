@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
+
+  const randompassord = (length) => {
+  const pass = 'ABCDEFGDEBNDLMDWLKM928T8406543bdwebkjfebdk!@#$%^&*()_+'
+  var result= '';
+  const charlength = pass.length;
+    for (let i = 0; i < length; i++) {
+      result += pass.charAt(Math.floor(Math.random() * charlength
+      ))
+    }
+    return result
+  }
+
+  console.log(randompassord(8))
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
