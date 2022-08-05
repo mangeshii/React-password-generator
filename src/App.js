@@ -16,7 +16,7 @@ function App() {
 
   console.log(randompassord(8))
   return (
-    <div className="App container" style={{ border: '2px solid green' }}>
+    <div className="App container">
       <div className='wrapper'>
         <div class="header">
           <h3>Password Generator</h3>
@@ -24,7 +24,7 @@ function App() {
         <form>
           <div className='pass-length space-around'>
             <label className="label" for="Password Length">Password Length</label>
-            <input type="text" maxLength="2" name="Password Length" size="2" />
+            <input type="text" maxLength="2" name="Password Length" size="1" style={{height:'25px'}} />
           </div>
           <div className='uppercase space-around'>
             <label className="label" for="uppercase">Add Upper Case Letters</label>
@@ -41,6 +41,9 @@ function App() {
           <div className='symbol space-around'>
             <label className="label" for="usymbol">Include Symbols</label>
             <input type="checkbox" name="symbol" />
+          </div>
+          <div className='generate-pass-btn'>
+            <button>Generate Password</button>
           </div>
         </form>
       </div>

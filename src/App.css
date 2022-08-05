@@ -8,18 +8,31 @@
 }
 .wrapper{
   padding:4% !important; 
+  border: 2px solid pink;
 }
 .header{
    text-align: center;
 }
+
 .space-around{
   width:100%;
   display: flex;
   justify-content: space-between;
+  line-height: 40px;
+  align-items: center;
 }
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+.generate-pass-btn{
+  text-align: center;
+}
+button{
+  margin-top: 20px !important;
+  padding: 5px ;
+  border-radius: 25px !important;
+  width: 100%;
 }
 
 
