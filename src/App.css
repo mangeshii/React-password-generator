@@ -14,17 +14,17 @@
    text-align: center;
 }
 .display-password{
-  /* border:2px solid red; */
-  height:40px;
+  background-color: aquamarine;
   margin-bottom: 10px;
   display: flex;
-  background-color: aquamarine;
+  justify-content: center;
+  align-items: center;
+  padding:10px 0px
 }
-/* .copy-icon{
-  float: right !important;
-} */
-h3{
-  /* border:2px solid red; */
+.pw{
+  display: flex;
+  align-items: center;
+  margin:auto  0%;
 }
 .space-around{
   width:100%;

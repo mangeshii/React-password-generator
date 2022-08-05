@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FaRegClipboard } from 'react-icons/fa';
 import { useState } from 'react';
-import {numbers,upperCaseLetters,lowerCaseLetters,specialCharacters} from './characters'
+import { numbers, upperCaseLetters, lowerCaseLetters, specialCharacters } from './characters'
 
 function App() {
 
@@ -18,38 +18,45 @@ function App() {
   // }
 
   // console.log(randompassord(8))
-  const [password, setPassword]= useState("");
-  const [passwordLength, setPasswordLength]= useState(20);
-  const [includeUpperCase, setIncludeUpperCase]= useState(false);
-  const [includeLowerCase, setIncludeLowerCase]= useState(false);
-  const [includeNumbers, setIncludeNumbers]= useState(false);
-  const [includeSymbols, setIncludeSymbols]= useState(false);
+  const [password, setPassword] = useState("");
+  const [passwordLength, setPasswordLength] = useState(20);
+  const [includeUpperCase, setIncludeUpperCase] = useState(false);
+  const [includeLowerCase, setIncludeLowerCase] = useState(false);
+  const [includeNumbers, setIncludeNumbers] = useState(false);
+  const [includeSymbols, setIncludeSymbols] = useState(false);
 
-  const handleGeneratePassword=()=>{
-    if(!includeUpperCase && !includeLowerCase && !includeNumbers && !includeSymbols){
-      alert("To generate password you must select atleast one checkbox",true)
+  const handleGeneratePassword = () => {
+    if (!includeUpperCase && !includeLowerCase && !includeNumbers && !includeSymbols) {
+      alert("To generate password you must select atleast one checkbox", true)
     }
     else {
-      let characterList= " "
-      console.log(characterList)
-      if (includeUpperCase){
-        characterList=characterList + upperCaseLetters
+      let characterList = " "
+      if (includeUpperCase) {
+        characterList = characterList + upperCaseLetters
       }
-      if (includeLowerCase){
-        characterList=characterList + lowerCaseLetters
+      if (includeLowerCase) {
+        characterList = characterList + lowerCaseLetters
       }
-      if (includeNumbers){
-        characterList=characterList + numbers
+      if (includeNumbers) {
+        characterList = characterList + numbers
       }
-      if (includeSymbols){
-        characterList=characterList + specialCharacters
+      if (includeSymbols) {
+        characterList = characterList + specialCharacters
       }
-      alert("Password is generated successfully", false)
+      setPassword(createpassword(characterList))
     }
 
   }
 
-  
+  const createpassword = (characterList) => {
+    let result = " "
+    for (let i = 0; i < passwordLength; i++) {
+      result += characterList.charAt(Math.floor(Math.random() * characterList.length))
+    }
+    return result
+  }
+
+
   return (
     <div className="App container">
       <div className='wrapper'>
@@ -57,13 +64,13 @@ function App() {
           <h3>Password Generator</h3>
         </div>
         <div className='display-password'>
-          <h3 className="col-md-11" style={{overflow:'hidden'}}></h3>
+          <h6 className="col-md-11 pw" >{password}</h6>
           <div className='copy-icon'>
             <FaRegClipboard />
           </div>
         </div>
 
-        <form onSubmit={(e)=>e.preventDefault()}>
+        <form onSubmit={(e) => e.preventDefault()}>
           <div className='pass-length space-around'>
             <label className="label" htmlFor="Password Length">Password Length</label>
             <input type="text" maxLength="2" name="Password Length" size="1" style={{ height: '25px' }} />
