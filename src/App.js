@@ -2,7 +2,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FaRegClipboard } from 'react-icons/fa';
 import { useState } from 'react';
-import { numbers, upperCaseLetters, lowerCaseLetters, specialCharacters } from './characters'
+import { numbers, upperCaseLetters, lowerCaseLetters, specialCharacters } from './characters';
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 function App() {
 
@@ -63,17 +64,22 @@ function App() {
         <div className="header">
           <h3>Password Generator</h3>
         </div>
+
         <div className='display-password'>
-          <h6 className="col-md-11 pw" >{password}</h6>
-          <div className='copy-icon'>
-            <FaRegClipboard />
-          </div>
+          <CopyToClipboard text={password}>
+
+            <div className='copy-text'>
+              <h6 className='pw'>{password}</h6>
+              <FaRegClipboard className='icon'/>
+            </div>
+
+          </CopyToClipboard>
         </div>
 
         <form onSubmit={(e) => e.preventDefault()}>
           <div className='pass-length space-around'>
             <label className="label" htmlFor="Password Length">Password Length</label>
-            <input type="text" maxLength="2" name="Password Length" size="1" style={{ height: '25px' }} />
+            <input type="number" maxLength="1" defaultValue={passwordLength} onChange={(e) => setPasswordLength(e.target.value)} name="Password Length" size="1" min="1" max="20" style={{ height: '25px', width: '60px' }} />
           </div>
           <div className='uppercase space-around'>
             <label className="label" htmlFor="uppercase">Add Upper Case Letters</label>

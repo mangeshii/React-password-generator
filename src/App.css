@@ -9,22 +9,26 @@
 .wrapper{
   padding:4% !important; 
   border: 2px solid pink;
+  background: linear-gradient(315deg, rgba(0,255,184,1) 5% 0%, #5471a1 100%)
 }
 .header{
    text-align: center;
 }
 .display-password{
   background-color: aquamarine;
-  margin-bottom: 10px;
+  margin: 10px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:10px 0px
+  border-radius: 5px;
+
 }
-.pw{
+
+.copy-text{
+  width: 100%;
   display: flex;
-  align-items: center;
-  margin:auto  0%;
+  justify-content: space-between;
+  padding: 10px;
 }
 .space-around{
   width:100%;
@@ -42,9 +46,11 @@
 }
 button{
   margin-top: 20px !important;
-  padding: 5px ;
+  padding: 10px ;
   border-radius: 25px !important;
   width: 100%;
+  background-color: aquamarine;
+  border: none;
 }
 
 
